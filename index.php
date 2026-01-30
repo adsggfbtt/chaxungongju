@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
@@ -8,14 +10,14 @@
       name="description"
       content="快速查询 USDT(TRC20) 与 TRX 交易记录、地址余额与合约信息。提供清晰的卡片布局、搜索入口与交易列表，体验类似 Tronscan 的浏览器界面。"
     />
-    <link rel="canonical" href="https://example.com/" />
+    <link rel="canonical" href="https://example.com/index.php" />
     <meta property="og:title" content="USDT/TRX 交易查询" />
     <meta
       property="og:description"
       content="查询 USDT(TRC20) 与 TRX 交易记录、余额与地址详情。"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://example.com/" />
+    <meta property="og:url" content="https://example.com/index.php" />
     <meta property="og:image" content="https://example.com/og-cover.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="stylesheet" href="styles.css" />
@@ -27,7 +29,7 @@
         "url": "https://example.com/",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://example.com/?q={search_term_string}",
+          "target": "https://example.com/search.php?q={search_term_string}",
           "query-input": "required name=search_term_string"
         }
       }
@@ -43,9 +45,9 @@
           <a href="#transactions">交易</a>
           <a href="#faq">FAQ</a>
         </div>
-        <button class="cta">开始查询</button>
+        <a class="cta" href="#search">开始查询</a>
       </nav>
-      <section class="hero">
+      <section class="hero" id="search">
         <div class="hero-text">
           <p class="tag">TRON 网络 · USDT/TRX 交易浏览</p>
           <h1>更快、更清晰的 USDT 与 TRX 交易查询体验</h1>
@@ -53,12 +55,13 @@
             输入地址或交易哈希即可查看余额、交易状态与转账明细，布局参考
             Tronscan 的高效信息密度与卡片化展示。
           </p>
-          <form class="search" role="search">
+          <form class="search" role="search" action="search.php" method="get">
             <input
               type="search"
               name="q"
               placeholder="输入地址 / 交易哈希 / 区块高度"
               aria-label="搜索地址或交易哈希"
+              required
             />
             <button type="submit">查询</button>
           </form>
@@ -105,7 +108,7 @@
               <strong>+120</strong>
             </li>
           </ul>
-          <button class="ghost">查看全部交易</button>
+          <button class="ghost" type="button">查看全部交易</button>
         </div>
       </section>
     </header>
@@ -136,7 +139,7 @@
       <section id="tokens" class="section tokens">
         <div class="section-header">
           <h2>资产概览</h2>
-          <button class="ghost">查看更多</button>
+          <button class="ghost" type="button">查看更多</button>
         </div>
         <div class="token-cards">
           <article>
@@ -170,10 +173,10 @@
         <div class="section-header">
           <h2>交易列表</h2>
           <div class="filters">
-            <button class="pill active">全部</button>
-            <button class="pill">USDT/TRC20</button>
-            <button class="pill">TRX</button>
-            <button class="pill">待确认</button>
+            <button class="pill active" type="button">全部</button>
+            <button class="pill" type="button">USDT/TRC20</button>
+            <button class="pill" type="button">TRX</button>
+            <button class="pill" type="button">待确认</button>
           </div>
         </div>
         <div class="table">
@@ -235,7 +238,7 @@
         <p>专注 TRON 生态的链上交易与资产查询。</p>
       </div>
       <div>
-        <p>数据来源：TRON 主网</p>
+        <p>数据来源：TRON 主网 / Tronscan API</p>
         <p>联系邮箱：support@example.com</p>
       </div>
     </footer>
